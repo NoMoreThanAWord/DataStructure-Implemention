@@ -23,11 +23,13 @@ public class LinkedListQueue<E> implements Queue<E> {
         }
     }
 
-    private Node head;
-    private Node tail;
+    //队列一端执行删除令一端执行插入。头结点删除为 o(1),插入也为 o(1)，尾结点删除为 o(n),插入为 o(1)，为了使所有操作都为 o(1)，故在尾部执行入队，头部执行出队
+    private Node head;//头结点，出队
+    private Node tail;//尾结点，入队
     private int size;
 
     public LinkedListQueue(){
+        //队列为空
         head = null;
         tail = null;
         size = 0;
@@ -35,6 +37,7 @@ public class LinkedListQueue<E> implements Queue<E> {
 
     @Override
     public void enqueue(E e) {
+        //队列为空时单另处理
         if(tail == null){
             tail = new Node(e);
             head = tail;
@@ -52,6 +55,7 @@ public class LinkedListQueue<E> implements Queue<E> {
         Node ret = head;
         head = head.next;
         ret.next = null;
+        //出队后队列为空，对尾结点也进行处理
         if(head == null)
             tail = null;
         size--;

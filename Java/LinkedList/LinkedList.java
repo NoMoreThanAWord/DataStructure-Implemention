@@ -1,4 +1,5 @@
 public class LinkedList<E> {
+	//把结点设立为私有内部类
     private class Node{
         public E data;
         public Node next;
@@ -22,8 +23,8 @@ public class LinkedList<E> {
         }
     }
 
-    private Node dummyHead;
-    private int size;
+    private Node dummyHead;//虚拟头结点
+    private int size;//链表中元素的个数
 
     public LinkedList(){
         this.dummyHead = new Node(null, null);
@@ -54,6 +55,7 @@ public class LinkedList<E> {
         size++;
     }
 
+    //头部添加元素 o(1)
     public void addFirst(E e){
 //        Node node = new Node(e);
 //        node.next = head;
@@ -61,6 +63,7 @@ public class LinkedList<E> {
         add(0, e);
     }
 
+    //尾部添加元素 o(n)
     public void addLast(E e){
         add(size, e);
     }
@@ -114,10 +117,12 @@ public class LinkedList<E> {
         return ret.data;
     }
 
+    //删除头部 o(1)
     public E removeFirst(){
         return remove(0);
     }
 
+    //删除尾部 o(n)
     public E removeLast(){
         return remove(size-1);
     }

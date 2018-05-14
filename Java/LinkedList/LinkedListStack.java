@@ -16,11 +16,13 @@ public class LinkedListStack<E> implements Stack<E> {
         return list.isEmpty();
     }
 
+    //入栈在头部操作 o(1)
     @Override
     public void push(E e) {
         list.addFirst(e);
     }
 
+    //出栈也在头部操作 o(1)
     @Override
     public E pop() {
         return list.removeFirst();
