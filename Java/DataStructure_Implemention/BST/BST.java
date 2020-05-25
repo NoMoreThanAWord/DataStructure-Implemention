@@ -150,7 +150,7 @@ public class BST<E extends Comparable<E>> {
         inOrder(root);
     }
 
-    //先序遍历
+    //层序遍历
     public void levelOrder(){
         if(root == null)
             return;
